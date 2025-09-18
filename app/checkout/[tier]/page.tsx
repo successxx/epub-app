@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { loadStripe } from '@stripe/stripe-js'
 import { PRODUCTS } from '@/lib/stripe'
@@ -17,6 +17,15 @@ export default function CheckoutPage({
   const [websiteUrl, setWebsiteUrl] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  // Pre-fill email if coming from hero section
+  useEffect(() => {
+    const storedEmail = sessionStorage.getItem('leadEmail')
+    if (storedEmail) {
+      setEmail(storedEmail)
+      sessionStorage.removeItem('leadEmail') // Clean up after using
+    }
+  }, [])
 
   const product = PRODUCTS[params.tier]
 
@@ -48,6 +57,11 @@ export default function CheckoutPage({
         })
       })
 
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to create checkout session')
+      }
+
       const { sessionId, url, error: apiError } = await response.json()
 
       if (apiError) {
@@ -57,18 +71,22 @@ export default function CheckoutPage({
       // Redirect to Stripe Checkout
       if (url) {
         window.location.href = url
-      } else {
+      } else if (sessionId) {
         const stripe = await stripePromise
-        if (stripe && sessionId) {
+        if (stripe) {
           const { error: stripeError } = await stripe.redirectToCheckout({ sessionId })
           if (stripeError) {
             throw stripeError
           }
+        } else {
+          throw new Error('Stripe failed to load. Please check your internet connection.')
         }
+      } else {
+        throw new Error('No checkout session created. Please try again.')
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Checkout error:', err)
-      setError('Failed to start checkout. Please try again.')
+      setError(err.message || 'Failed to start checkout. Please try again.')
       setLoading(false)
     }
   }

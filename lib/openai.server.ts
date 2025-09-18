@@ -1,23 +1,17 @@
-// This module should only be imported in server-side code (API routes, server components)
-// If you see an error about OpenAI on the client side, check your imports
+import 'server-only'
+import OpenAI from 'openai'
 
-let openai: any = null
+// This file will throw an error if imported on the client side
+// thanks to the 'server-only' package
 
-if (typeof window === 'undefined') {
-  // Dynamically import OpenAI only on server-side
-  const OpenAI = require('openai')
+const openai = process.env.OPENAI_API_KEY
+  ? new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    })
+  : null
 
-  if (!process.env.OPENAI_API_KEY) {
-    console.warn('Warning: OPENAI_API_KEY not set. AI features will not work.')
-  } else {
-    try {
-      openai = new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY,
-      })
-    } catch (error) {
-      console.error('Failed to initialize OpenAI:', error)
-    }
-  }
+if (!openai && process.env.NODE_ENV === 'production') {
+  console.error('Critical: OPENAI_API_KEY not set in production')
 }
 
 export { openai }

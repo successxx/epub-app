@@ -42,13 +42,16 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Ensure we have the base URL
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || `http://localhost:${process.env.PORT || 3000}`
+
     // Create Stripe checkout session
     const session = await createCheckoutSession({
       productType,
       userEmail,
       userId: userId || undefined,
-      successUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}&type=${productType}`,
-      cancelUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/${productType}`,
+      successUrl: `${baseUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&type=${productType}`,
+      cancelUrl: `${baseUrl}/checkout/${productType}`,
       metadata: {
         productType,
         userId: userId || '',

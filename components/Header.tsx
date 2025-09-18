@@ -44,7 +44,30 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-background md:backdrop-blur md:supports-[backdrop-filter]:bg-background/70">
       <div className="mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
-        <Link href="/" className="font-medium">
+        <Link href="/" className="font-medium flex items-center gap-2">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-foreground">
+            {/* Book pages */}
+            <rect x="8" y="6" width="20" height="28" rx="2" fill="currentColor" opacity="0.1"/>
+            <rect x="10" y="8" width="18" height="26" rx="1" fill="currentColor" opacity="0.15"/>
+            {/* Main book cover */}
+            <rect x="12" y="6" width="20" height="28" rx="2" fill="none" stroke="currentColor" strokeWidth="2"/>
+            {/* Book spine */}
+            <line x1="12" y1="6" x2="12" y2="34" stroke="currentColor" strokeWidth="2"/>
+            {/* AI circuit pattern on cover */}
+            <g opacity="0.6">
+              {/* Neural network nodes */}
+              <circle cx="20" cy="15" r="1.5" fill="currentColor"/>
+              <circle cx="26" cy="18" r="1.5" fill="currentColor"/>
+              <circle cx="20" cy="21" r="1.5" fill="currentColor"/>
+              <circle cx="26" cy="24" r="1.5" fill="currentColor"/>
+              {/* Connections */}
+              <line x1="20" y1="15" x2="26" y2="18" stroke="currentColor" strokeWidth="1" opacity="0.4"/>
+              <line x1="20" y1="21" x2="26" y2="18" stroke="currentColor" strokeWidth="1" opacity="0.4"/>
+              <line x1="20" y1="21" x2="26" y2="24" stroke="currentColor" strokeWidth="1" opacity="0.4"/>
+            </g>
+            {/* Bookmark ribbon */}
+            <path d="M28 6v12l-2-2-2 2V6" fill="currentColor" opacity="0.3"/>
+          </svg>
           <div className="leading-[1.1]">
             <div className="text-xl tracking-tight">ePubAI</div>
             <div className="text-[11px] text-foreground/60">Five minutes in. A book out.</div>

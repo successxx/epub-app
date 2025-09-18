@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function EmailCapture() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const router = useRouter();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -14,12 +16,20 @@ export default function EmailCapture() {
     }
     setStatus("loading");
     try {
-      await fetch("/api/lead", {
+      const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-      setStatus("success");
+
+      if (response.ok) {
+        // Store email in session storage for pre-filling on pricing page
+        sessionStorage.setItem("leadEmail", email);
+        // Redirect to pricing page
+        router.push("/pricing");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -28,7 +38,7 @@ export default function EmailCapture() {
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-foreground/10 p-5">
-        <div className="text-sm font-medium">Thanks — we’ll follow up shortly.</div>
+        <div className="text-sm font-medium">Thanks — we'll follow up shortly.</div>
         <div className="mt-1 text-sm text-foreground/70">Keep exploring while we prepare next steps.</div>
       </div>
     );

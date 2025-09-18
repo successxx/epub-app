@@ -1,14 +1,20 @@
 import * as cheerio from 'cheerio'
 import axios from 'axios'
-import OpenAI from 'openai'
 
-// Only initialize OpenAI on server-side to prevent client-side errors
-let openai: OpenAI | null = null
+// Dynamic import to prevent client-side bundling
+let openai: any = null
 
-if (typeof window === 'undefined' && process.env.OPENAI_API_KEY) {
-  openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-  })
+if (typeof window === 'undefined') {
+  try {
+    const OpenAI = require('openai')
+    if (process.env.OPENAI_API_KEY) {
+      openai = new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY,
+      })
+    }
+  } catch (error) {
+    console.error('Failed to initialize OpenAI in webscraper:', error)
+  }
 }
 
 export interface ScrapedCompanyData {

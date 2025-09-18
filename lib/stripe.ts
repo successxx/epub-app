@@ -52,7 +52,19 @@ export interface CreateCheckoutSessionOptions {
 export async function createCheckoutSession(options: CreateCheckoutSessionOptions) {
   const product = PRODUCTS[options.productType]
 
+  // Validate that we have a price ID
+  if (!product.priceId) {
+    console.error(`Missing Stripe price ID for product: ${options.productType}`)
+    console.error('Available env vars:', {
+      STRIPE_PRICE_STARTER: process.env.STRIPE_PRICE_STARTER,
+      STRIPE_PRICE_PRO: process.env.STRIPE_PRICE_PRO
+    })
+    throw new Error(`Missing Stripe price ID for product: ${options.productType}. Please configure STRIPE_PRICE_STARTER and STRIPE_PRICE_PRO in your environment variables.`)
+  }
+
   try {
+    console.log(`Creating checkout session for ${options.productType} with price ID: ${product.priceId}`)
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -74,6 +86,7 @@ export async function createCheckoutSession(options: CreateCheckoutSessionOption
       allow_promotion_codes: true,
     })
 
+    console.log('Checkout session created successfully:', session.id)
     return session
   } catch (error) {
     console.error('Error creating checkout session:', error)

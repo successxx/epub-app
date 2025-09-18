@@ -1,0 +1,13 @@
+const fs = require('fs');
+const path = require('path');
+
+// Base64 encoded 32x32 PNG favicon with book and AI design
+// This is a pre-generated PNG version of our logo
+const base64PNG = `iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC8klEQVR4nO2WTWgTQRTH/29ms5tsNrFJG9OkrR8HFVGxCIpeBEURD4KIB0E8ePCgePHgwYMHD4IHwYMgHgQPgiAiiBcRRBARRAQRUVFRa1ut1jZt0qTZj9nZmXkjm91ks0m2aRUP/mGZnZl5v/fezLz3BvjP8U8AlpeXl3d0dGxtbm7eEAwGVwqCILEsy3Ech3Ec5+Q4zuE4zu44jrs5juPueDzeO52dnR+qq6s/lxJQ1dfXt0+SpAOCIOwQBKGe53me53nSaDQaxWKxaDQajUaj0Wg0Go3G4/F4PB6Px2OxWCwWi0UjkchgKBTqGB8ff9Dd3f2kq6vrVV5AXV3dppaWlvOyLJ8QRVEURVG0WCwWk8lkMplMJpPJZDKZzWaz2Ww2m81ms9lisbRaLJZWq9XaarVaW202m81ms9ntdrvNZrPZ7HZ7vd1ur3c4HA0Oh6PB4XCsd7lcGxwOxyaXy7WZ47hVAPcCADudTmeL0+lc73K5NrlcLrfb7Xa73W632+12u91ut9vr9Xq9Xq/P5/P5fD6fz+fz+Xw+v9/v9weDwWAwGAwGg8FQKBQKhUKhcDgcDofDYVEURVEUJUmSJEmSLMuyLMuyLMuqqqqqqqpWVVVVVVW1urq6urq6uqa2tramtra2VlGUSNYXjI2N3QD4XRAE4TUA8DzPkwaDwWAwGAwGg8FgMBgMRqPRaDQajUaj0Wg0Go1ms9lsNpvNZrPZbDabbTabLRaLxWKxWKxWq9VqtVqtVqvVarVa7Xa73W632+12u91ut9sdDofD4XA4nE6n0+l0Ol0ul8vtdrvdbrfH4/F4PB6P1+v1+nw+XzAYDIbDYVGWZVVRFJXneaW5uRkVFRUoRn9//2sAhwDgyJEjuH37Nk6dOoWbN2/i/PnzOH36NC5duoRz587h6tWrOHbsGG7duoWDBw/i3r17OHDgAO7fv4/9+/fj4cOH2LdvHx49eoS9e/fi8ePH2L17N548eZIGdOzYgWfPnuW92l+Wbz+JPwCBGsWeCxQjqAAAAABJRU5ErkJggg==`;
+
+// Convert base64 to buffer and write to file
+const buffer = Buffer.from(base64PNG, 'base64');
+const outputPath = path.join(__dirname, '../public/favicon.png');
+
+fs.writeFileSync(outputPath, buffer);
+console.log('Favicon created successfully at:', outputPath);

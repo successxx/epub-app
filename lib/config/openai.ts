@@ -1,22 +1,30 @@
-import OpenAI from 'openai'
+// This module should only be imported in server-side code (API routes, server components)
+// Dynamic import to prevent client-side bundling
 
-// Only initialize on server-side to prevent client-side errors
-let openaiText: OpenAI | null = null
-let openaiImage: OpenAI | null = null
+let openaiText: any = null
+let openaiImage: any = null
 
 if (typeof window === 'undefined') {
-  // Server-side only initialization
-  if (process.env.OPENAI_API_KEY) {
-    // Text generation client (existing API key)
-    openaiText = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
-    })
+  // Server-side only initialization with dynamic require
+  try {
+    const OpenAI = require('openai')
 
-    // Image generation client (separate API key for DALL-E)
-    // Uses the same API key as text generation if no separate key is configured
-    openaiImage = new OpenAI({
-      apiKey: process.env.OPENAI_IMAGE_API_KEY || process.env.OPENAI_API_KEY,
-    })
+    if (process.env.OPENAI_API_KEY) {
+      // Text generation client (existing API key)
+      openaiText = new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY,
+      })
+
+      // Image generation client (separate API key for DALL-E)
+      // Uses the same API key as text generation if no separate key is configured
+      openaiImage = new OpenAI({
+        apiKey: process.env.OPENAI_IMAGE_API_KEY || process.env.OPENAI_API_KEY,
+      })
+    } else {
+      console.warn('OpenAI API key not configured')
+    }
+  } catch (error) {
+    console.error('Failed to initialize OpenAI clients:', error)
   }
 }
 

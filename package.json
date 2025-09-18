@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "test:generate": "node test-generation.js",
-    "test:stripe": "stripe listen --forward-to localhost:3000/api/webhooks/stripe"
+    "test:stripe": "stripe listen --forward-to localhost:3000/api/webhooks/stripe",
+    "health": "curl http://localhost:7829/api/health",
+    "production:check": "node -e \"require('./lib/env-check')\"",
+    "postinstall": "echo '✅ Dependencies installed successfully'"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

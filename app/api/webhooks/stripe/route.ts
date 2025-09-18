@@ -62,27 +62,74 @@ export async function POST(request: NextRequest) {
 
           // CRITICAL: Trigger automatic book generation if website URL provided
           if (websiteUrl) {
-            try {
-              // Call book generation API
-              const bookResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/generate-book`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  sessionId,
-                  websiteUrl,
-                  companyData: {} // Will be populated by scraping
-                })
-              })
+            // Retry logic for critical book generation
+            let retries = 3
+            let success = false
 
-              if (bookResponse.ok) {
-                console.log('Automatic book generation triggered for order:', orderResult.data.id)
-              } else {
-                console.error('Failed to trigger book generation:', await bookResponse.text())
+            while (retries > 0 && !success) {
+              try {
+                // Call book generation API with timeout
+                const controller = new AbortController()
+                const timeoutId = setTimeout(() => controller.abort(), 30000) // 30 second timeout
+
+                const bookResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/generate-book`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'X-Webhook-Secret': process.env.STRIPE_WEBHOOK_SECRET!, // Add internal auth
+                  },
+                  body: JSON.stringify({
+                    sessionId,
+                    websiteUrl,
+                    companyData: {}, // Will be populated by scraping
+                    orderId: orderResult.data.id
+                  }),
+                  signal: controller.signal
+                })
+
+                clearTimeout(timeoutId)
+
+                if (bookResponse.ok) {
+                  console.log('✅ Automatic book generation triggered for order:', orderResult.data.id)
+                  success = true
+
+                  // Update order with generation status
+                  await supabase
+                    .from('orders')
+                    .update({ generation_status: 'triggered' })
+                    .eq('id', orderResult.data.id)
+                } else {
+                  const errorText = await bookResponse.text()
+                  console.error(`❌ Book generation failed (attempt ${4 - retries}/3):`, errorText)
+                  retries--
+
+                  if (retries > 0) {
+                    // Wait before retry with exponential backoff
+                    await new Promise(resolve => setTimeout(resolve, (4 - retries) * 1000))
+                  }
+                }
+              } catch (error) {
+                console.error(`❌ Error triggering book generation (attempt ${4 - retries}/3):`, error)
+                retries--
+
+                if (retries > 0) {
+                  await new Promise(resolve => setTimeout(resolve, (4 - retries) * 1000))
+                }
               }
-            } catch (error) {
-              console.error('Error triggering book generation:', error)
+            }
+
+            if (!success) {
+              // Log critical failure for manual intervention
+              console.error('🚨 CRITICAL: Failed to trigger book generation after 3 attempts for order:', orderResult.data.id)
+
+              // Store failure for manual retry
+              await supabase
+                .from('orders')
+                .update({
+                  generation_status: 'failed',
+                  generation_error: 'Failed to trigger automatic generation'
+                })
+                .eq('id', orderResult.data.id)
             }
           }
         }

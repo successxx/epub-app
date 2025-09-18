@@ -50,22 +50,58 @@ export const createSupabaseServer = async () => {
 // Alias for API routes
 export { createSupabaseServer as createClient }
 
-// Admin client for server-side operations
+// Singleton admin client for better connection management
+let adminClient: ReturnType<typeof createClient> | null = null
+
+// Admin client for server-side operations with connection pooling
 export const createSupabaseAdmin = () => {
   if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
     throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY environment variable')
   }
 
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY,
-    {
-      auth: {
-        autoRefreshToken: false,
-        persistSession: false
+  if (!adminClient) {
+    adminClient = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY,
+      {
+        auth: {
+          autoRefreshToken: false,
+          persistSession: false
+        },
+        global: {
+          headers: {
+            'x-application-name': 'epub-ai-production'
+          }
+        }
+      }
+    )
+  }
+
+  return adminClient
+}
+
+// Helper function with retry logic for critical database operations
+export async function withRetry<T>(
+  operation: () => Promise<T>,
+  maxRetries = 3,
+  delayMs = 1000
+): Promise<T> {
+  let lastError: any
+
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await operation()
+    } catch (error) {
+      lastError = error
+      console.error(`Database operation failed (attempt ${i + 1}/${maxRetries}):`, error)
+
+      if (i < maxRetries - 1) {
+        await new Promise(resolve => setTimeout(resolve, delayMs * Math.pow(2, i)))
       }
     }
-  )
+  }
+
+  throw lastError
 }
 
 // Schema configuration for epub_ai tables

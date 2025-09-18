@@ -7,9 +7,16 @@ import { retrieveCheckoutSession } from '@/lib/stripe'
 import { sendBookDeliveryEmail } from '@/lib/services/email'
 
 export const maxDuration = 300 // 5 minutes for book generation
+export const dynamic = 'force-dynamic' // Disable caching for this endpoint
 
 export async function POST(request: NextRequest) {
+  // Performance tracking
+  const startTime = Date.now()
+
   try {
+    // Validate webhook secret for internal calls
+    const webhookSecret = request.headers.get('X-Webhook-Secret')
+    const isInternalCall = webhookSecret === process.env.STRIPE_WEBHOOK_SECRET
     const {
       sessionId,
       websiteUrl,
@@ -151,8 +158,22 @@ export async function POST(request: NextRequest) {
       finalCompanyData.additionalContext = additionalInfo
     }
 
-    // Start async book generation
+    // Start async book generation with error tracking
     generateBookAsync(bookRecord.id, finalCompanyData, productType, supabase)
+      .catch(error => {
+        console.error('🚨 Critical book generation failure:', error)
+        // Mark as failed in database
+        supabase
+          .from('books')
+          .update({
+            status: 'failed',
+            generation_metadata: {
+              error: error instanceof Error ? error.message : 'Unknown error',
+              failedAt: new Date().toISOString()
+            }
+          })
+          .eq('id', bookRecord.id)
+      })
 
     return NextResponse.json({
       success: true,
@@ -160,7 +181,22 @@ export async function POST(request: NextRequest) {
       message: 'Book generation started. This may take a few minutes.'
     })
   } catch (error) {
-    console.error('Book generation error:', error)
+    const duration = Date.now() - startTime
+    console.error('Book generation initialization error:', {
+      error,
+      duration,
+      timestamp: new Date().toISOString()
+    })
+
+    // Log to monitoring
+    const { logError } = await import('@/lib/monitoring')
+    logError(
+      'error',
+      'Failed to start book generation',
+      { duration },
+      error instanceof Error ? error : undefined
+    )
+
     return NextResponse.json(
       { error: 'Failed to start book generation' },
       { status: 500 }

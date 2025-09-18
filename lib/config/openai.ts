@@ -1,15 +1,26 @@
 import OpenAI from 'openai'
 
-// Text generation client (existing API key)
-export const openaiText = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+// Only initialize on server-side to prevent client-side errors
+let openaiText: OpenAI | null = null
+let openaiImage: OpenAI | null = null
 
-// Image generation client (separate API key for DALL-E)
-// Uses the same API key as text generation if no separate key is configured
-export const openaiImage = new OpenAI({
-  apiKey: process.env.OPENAI_IMAGE_API_KEY || process.env.OPENAI_API_KEY,
-})
+if (typeof window === 'undefined') {
+  // Server-side only initialization
+  if (process.env.OPENAI_API_KEY) {
+    // Text generation client (existing API key)
+    openaiText = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    })
+
+    // Image generation client (separate API key for DALL-E)
+    // Uses the same API key as text generation if no separate key is configured
+    openaiImage = new OpenAI({
+      apiKey: process.env.OPENAI_IMAGE_API_KEY || process.env.OPENAI_API_KEY,
+    })
+  }
+}
+
+export { openaiText, openaiImage }
 
 // Cover image generation prompt template
 export function generateCoverPrompt(title: string, subtitle: string, industry: string): string {

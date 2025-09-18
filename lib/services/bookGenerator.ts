@@ -300,6 +300,11 @@ async function generateTitle(summary: string, companyData: ScrapedCompanyData): 
 
 // Main book generation function
 export async function generateBook(options: BookGenerationOptions): Promise<GeneratedBook> {
+  // Check if OpenAI clients are available (server-side only)
+  if (!openaiText || !openaiImage) {
+    throw new Error('OpenAI is not initialized. This function must be called on the server side.')
+  }
+
   const { type, companyData } = options
   const totalChapters = type === 'basic' ? 15 : 30
 
@@ -362,6 +367,12 @@ export async function generateBook(options: BookGenerationOptions): Promise<Gene
 
 // Generate cover image using DALL-E with premium API key
 export async function generateCoverImage(prompt: string): Promise<string> {
+  // Check if OpenAI image client is available
+  if (!openaiImage) {
+    console.warn('OpenAI image client not initialized, returning empty cover URL')
+    return ''
+  }
+
   try {
     const response = await openaiImage.images.generate({
       model: "dall-e-3",

@@ -2,9 +2,14 @@ import * as cheerio from 'cheerio'
 import axios from 'axios'
 import OpenAI from 'openai'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+// Only initialize OpenAI on server-side to prevent client-side errors
+let openai: OpenAI | null = null
+
+if (typeof window === 'undefined' && process.env.OPENAI_API_KEY) {
+  openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+}
 
 export interface ScrapedCompanyData {
   senderName?: string
@@ -83,6 +88,11 @@ async function fetchWebsiteContent(url: string): Promise<string> {
 }
 
 export async function analyzeWebsiteWithAI(url: string): Promise<ScrapedCompanyData> {
+  // Check if OpenAI is available (server-side only)
+  if (!openai) {
+    throw new Error('OpenAI is not initialized. This function must be called on the server side.')
+  }
+
   try {
     const websiteContent = await fetchWebsiteContent(url)
 

@@ -1,14 +1,20 @@
 import OpenAI from 'openai'
 
-if (!process.env.OPENAI_API_KEY) {
-  console.warn('Warning: OPENAI_API_KEY not set. AI features will not work.')
-}
+// Only initialize OpenAI on the server side
+let openai: OpenAI | null = null
 
-export const openai = process.env.OPENAI_API_KEY
-  ? new OpenAI({
+if (typeof window === 'undefined') {
+  // Server-side only
+  if (!process.env.OPENAI_API_KEY) {
+    console.warn('Warning: OPENAI_API_KEY not set. AI features will not work.')
+  } else {
+    openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
     })
-  : null
+  }
+}
+
+export { openai }
 
 export async function generateContent(
   prompt: string,

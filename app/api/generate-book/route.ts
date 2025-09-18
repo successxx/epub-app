@@ -285,7 +285,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Book ID required' }, { status: 400 })
   }
 
-  const supabase = createClient()
+  const supabase = createSupabaseAdmin()
 
   const { data: book, error } = await supabase
     .from('books')

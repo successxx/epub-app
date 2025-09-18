@@ -14,6 +14,7 @@ export default function CheckoutPage({
 }) {
   const router = useRouter()
   const [email, setEmail] = useState('')
+  const [websiteUrl, setWebsiteUrl] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -22,6 +23,11 @@ export default function CheckoutPage({
   const handleCheckout = async () => {
     if (!email) {
       setError('Please enter your email address')
+      return
+    }
+
+    if (!websiteUrl) {
+      setError('Please enter your website URL')
       return
     }
 
@@ -37,7 +43,8 @@ export default function CheckoutPage({
         },
         body: JSON.stringify({
           productType: params.tier,
-          userEmail: email
+          userEmail: email,
+          websiteUrl: websiteUrl
         })
       })
 
@@ -105,6 +112,21 @@ export default function CheckoutPage({
           </div>
 
           <div className="border-t pt-6">
+            <div className="mb-4">
+              <label htmlFor="websiteUrl" className="block text-sm font-medium text-gray-700 mb-2">
+                Website URL
+              </label>
+              <input
+                type="url"
+                id="websiteUrl"
+                value={websiteUrl}
+                onChange={(e) => setWebsiteUrl(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="https://yourcompany.com"
+                required
+              />
+            </div>
+
             <div className="mb-4">
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address

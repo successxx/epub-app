@@ -1,23 +1,65 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import SkipNav from "../components/SkipNav";
+import ReadingProgress from "../components/ui/ReadingProgress";
 
-const inter = Inter({
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: 'swap',
-})
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "ePub.AI - Professional Lead Magnet Generation",
-  description: "Generate professional 100-250 page lead magnet ebooks in 5 minutes from just your website URL",
-  keywords: "lead generation, ebook creator, content marketing, AI writing, business growth",
+  metadataBase: new URL("https://epub.ai"),
+  title: {
+    default: "ePubAI — AI‑Crafted Ghostwritten Books for Founders and Teams",
+    template: "%s — ePubAI",
+  },
+  description:
+    "AI‑generated lead magnet books, in your voice. A premium automated process delivering a publish‑ready book in 5 minutes. Starting at $499.",
+  keywords: [
+    "AI ghostwriting",
+    "website to book",
+    "founder book",
+    "authority marketing",
+    "B2B content book",
+    "ePubAI automated",
+  ],
   openGraph: {
-    title: "ePub.AI - Professional Lead Magnet Generation",
-    description: "Generate professional 100-250 page lead magnet ebooks in 5 minutes",
     type: "website",
     url: "https://epub.ai",
+    title: "ePubAI — AI‑Crafted Ghostwritten Books",
+    description:
+      "Transform your website into a publish‑ready book in 5 minutes. Automated AI generation, professional quality, instant delivery.",
+    images: [
+      {
+        url: "/api/og?title=ePubAI%20%E2%80%94%20AI%E2%80%91Crafted%20Ghostwritten%20Books",
+        width: 1200,
+        height: 630,
+        alt: "ePubAI — AI‑Crafted Ghostwritten Books",
+      },
+    ],
   },
-}
+  twitter: {
+    card: "summary_large_image",
+    title: "ePubAI — AI‑Crafted Ghostwritten Books",
+    description:
+      "AI‑generated lead magnet books, in your voice. Premium automated process delivering a publish‑ready book in 5 minutes. Starting at $499.",
+    images: [
+      "/api/og?title=ePubAI%20%E2%80%94%20AI%E2%80%91Crafted%20Ghostwritten%20Books",
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -26,8 +68,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 antialiased`}>
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ReadingProgress />
+        <SkipNav />
+        <Header />
+        <main id="content" role="main" className="min-h-[60vh] focus:outline-none">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

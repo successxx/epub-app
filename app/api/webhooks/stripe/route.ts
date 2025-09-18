@@ -37,34 +37,55 @@ export async function POST(request: NextRequest) {
       const { sessionId, customerEmail, metadata } = result
       const userId = metadata?.userId
       const productType = metadata?.productType
+      const websiteUrl = metadata?.websiteUrl
 
       if (userId && productType) {
-        // Update user subscription status
-        await supabase
-          .from('users')
-          .update({
-            subscription_status: 'active',
-            subscription_tier: productType,
-            stripe_customer_id: result.customerId
-          })
-          .eq('id', userId)
-
-        // Create payment record
-        await supabase
-          .from('payments')
+        // Create order record
+        const orderResult = await supabase
+          .from('orders')
           .insert({
             user_id: userId,
-            stripe_payment_intent_id: event.data.object.payment_intent || '',
             stripe_session_id: sessionId,
+            stripe_payment_intent: event.data.object.payment_intent || '',
             amount: result.amountTotal || 0,
-            currency: 'usd',
-            status: 'succeeded',
-            product_type: productType,
-            metadata: {
-              customerEmail,
-              ...metadata
-            }
+            tier: productType === 'basic' ? 'starter' : 'professional',
+            status: 'paid',
+            paid_at: new Date().toISOString()
           })
+          .select()
+          .single()
+
+        if (orderResult.error) {
+          console.error('Failed to create order:', orderResult.error)
+        } else {
+          console.log('Order created successfully:', orderResult.data.id)
+
+          // CRITICAL: Trigger automatic book generation if website URL provided
+          if (websiteUrl) {
+            try {
+              // Call book generation API
+              const bookResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/generate-book`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  sessionId,
+                  websiteUrl,
+                  companyData: {} // Will be populated by scraping
+                })
+              })
+
+              if (bookResponse.ok) {
+                console.log('Automatic book generation triggered for order:', orderResult.data.id)
+              } else {
+                console.error('Failed to trigger book generation:', await bookResponse.text())
+              }
+            } catch (error) {
+              console.error('Error triggering book generation:', error)
+            }
+          }
+        }
       }
     } else if (result.type === 'payment.failed') {
       console.error('Payment failed:', result.error)

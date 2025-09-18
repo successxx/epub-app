@@ -1,4 +1,4 @@
-import { openaiText, openaiImage, generateCoverPrompt } from '../config/openai'
+import { openaiText, openaiImage } from '../config/openai'
 import { ScrapedCompanyData } from './webscraper'
 import { generateChapterPrompt, getPremiumChapterThemes } from './promptGenerator'
 import { cleanTitle, cleanFilename, cleanChapterContent, formatMarkdownToHtml } from './bookCleanup'
@@ -342,11 +342,8 @@ export async function generateBook(options: BookGenerationOptions): Promise<Gene
   console.log('Generating cover image...')
   let coverImageUrl: string | undefined
   try {
-    const coverPrompt = createCoverPrompt(
-      title,
-      subtitle || '',
-      companyData.industry || 'Business'
-    )
+    const coverPromptTemplate = await loadPromptTemplate('cover.txt')
+    const coverPrompt = coverPromptTemplate.replace('{{91.result]', title)
     coverImageUrl = await generateCoverImage(coverPrompt)
   } catch (error) {
     console.error('Error generating cover:', error)

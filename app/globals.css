@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f8f7; /* off‑white */
+  --foreground: #121212; /* off‑black */
+  /* Psychedelic purples */
+  --purple-900: #2a0046;
+  --purple-800: #3c0073;
+  --purple-700: #5600a9;
+  --purple-600: #7b1fff;
+  --purple-500: #a45bff;
+  --purple-400: #c38bff;
 }
 
 @theme inline {
@@ -12,15 +19,123 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* lock to light, Jony Ive style; dark not enabled by default */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, sans-serif;
 }
+
+/* dotted grid background helper */
+.bg-dots {
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--foreground) 10%, transparent) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+/* purple gradient surfaces */
+.bg-purple-surface {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--purple-700) 68%, transparent), color-mix(in oklab, var(--purple-900) 92%, transparent));
+}
+.border-purple-soft { border-color: color-mix(in oklab, var(--purple-600) 35%, transparent); }
+.ring-purple-acc { box-shadow: 0 0 0 1px color-mix(in oklab, var(--purple-600) 35%, transparent); }
+
+/* small badge style */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 24px; padding: 0 10px; border-radius: 999px;
+  font-size: 12px; letter-spacing: .02em;
+  border: 1px solid color-mix(in oklab, var(--foreground) 15%, transparent);
+  background: color-mix(in oklab, var(--foreground) 4%, transparent);
+}
+
+/* card shadow for purple panels */
+.purple-card { box-shadow: 0 8px 40px color-mix(in oklab, var(--purple-700) 25%, transparent); }
+
+/* premium purple pipeline */
+.pipeline { position: relative; padding: 10px 0; }
+.pipeline__bar {
+  height: 8px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--purple-700), var(--purple-500));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 20px 50px color-mix(in oklab, var(--purple-700) 28%, transparent);
+}
+.pipeline__node { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 999px; transform: translate(-50%, -50%); background: #fff; box-shadow: 0 0 0 3px color-mix(in oklab, var(--purple-600) 40%, transparent), 0 6px 20px color-mix(in oklab, var(--purple-700) 30%, transparent); border: 1px solid color-mix(in oklab, var(--purple-600) 30%, transparent); }
+
+h1, h2, h3 {
+  letter-spacing: -0.01em;
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  padding: 8px 12px;
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 8px;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Subtle reveal animations */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(8px); transition: opacity 500ms cubic-bezier(.2,.7,.2,1), transform 500ms cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+}
+
+/* Premium long‑form typography */
+.prose {
+  --prose-max: 70ch;
+  --prose-muted: color-mix(in oklab, var(--foreground) 70%, transparent);
+  max-width: var(--prose-max);
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+.prose p { margin: 1rem 0 0 0; }
+.prose h2 { font-size: 1.45rem; line-height: 1.22; margin-top: 2rem; }
+.prose h3 { font-size: 1.2rem; line-height: 1.3; margin-top: 1.4rem; }
+.prose ul, .prose ol {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+}
+.prose li { margin: 0.5rem 0; }
+.prose blockquote {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid color-mix(in oklab, var(--foreground) 15%, transparent);
+  color: var(--prose-muted);
+}
+.prose hr {
+  height: 1px;
+  border: 0;
+  margin: 2rem 0;
+  background: color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+.prose strong { font-weight: 600; }
+.prose em { font-style: italic; }
+.prose a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; }
+.prose img, .prose video { border-radius: 12px; }
+.prose small { color: var(--prose-muted); }
+
+/* Reading progress bar */
+.reading-progress { background: transparent; }
+.reading-progress__bar { background: color-mix(in oklab, var(--foreground) 60%, transparent); transition: width 120ms linear; }
+
+/* Accent/muted callouts (utility classes used by prose blocks) */
+.callout-muted { border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent); background: color-mix(in oklab, var(--foreground) 5%, transparent); border-radius: 12px; padding: 1rem; }
+.callout-accent { border: 1px solid color-mix(in oklab, var(--foreground) 20%, transparent); background: color-mix(in oklab, var(--foreground) 8%, transparent); border-radius: 12px; padding: 1rem; }
+
+/* Compact table style helper */
+.table-compact { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .95rem; }
+.table-compact th, .table-compact td { padding: .5rem .75rem; }
+.table-compact thead tr { border-bottom: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent); }
+.table-compact tbody tr + tr { border-top: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent); }
+
+/* Section rhythm */
+.section { padding-top: clamp(1rem, 2vw, 2.5rem); padding-bottom: clamp(1rem, 2.5vw, 3rem); }

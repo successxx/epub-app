@@ -1,327 +1,118 @@
-"use client"
+import Link from "next/link";
+import Section from "../components/ui/Section";
+import Split from "../components/ui/Split";
+import FeatureCard from "../components/ui/FeatureCard";
+import Accordion from "../components/ui/Accordion";
+import { BookOpen, Timer, Sparkles, Quote, CheckCircle2 } from "lucide-react";
+import Reveal from "../components/Reveal";
+import type { Metadata } from "next";
+import EmailCapture from "../components/EmailCapture";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { formatPrice } from "@/lib/utils"
-import { CheckIcon, BookOpenIcon, ClockIcon, SparklesIcon, RocketIcon, ShieldIcon } from "lucide-react"
-
-const tiers = [
-  {
-    name: "Basic",
-    id: "basic",
-    price: 4900,
-    description: "Perfect for small businesses and startups",
-    features: [
-      "15 professionally written chapters",
-      "AI-powered content personalization",
-      "Website analysis and data extraction",
-      "Custom cover design with DALL-E 3",
-      "EPUB format delivery",
-      "Introduction and conclusion",
-      "Instant generation after payment",
-      "Based on your website data",
-      "Professional formatting",
+export const metadata: Metadata = {
+  title: "ePub.AI — AI‑Generated Lead Magnet Books for Business Owners",
+  description:
+    "Turn your website into a ~200‑page lead magnet book in 5 minutes. Automated AI generation, professional quality, instant delivery.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "ePub.AI — AI‑Generated Lead Magnet Books",
+    description:
+      "Transform your website into a lead magnet book in 5 minutes.",
+    images: [
+      {
+        url: "/api/og?title=ePub.AI%20%E2%80%94%20AI%E2%80%91Generated%20Books&subtitle=Five%20minutes.%20Your%20website.&bg=slate",
+        width: 1200,
+        height: 630,
+      },
     ],
   },
-  {
-    name: "Premium",
-    id: "premium",
-    price: 99900,
-    description: "For serious businesses wanting comprehensive lead magnets",
-    features: [
-      "30 comprehensive chapters",
-      "Advanced AI-powered personalization",
-      "Deep website analysis and competitor research",
-      "Premium custom cover design",
-      "Multiple format delivery (EPUB, PDF)",
-      "Extended introduction and conclusion",
-      "Priority generation and support",
-      "Content optimization for conversions",
-      "Industry-specific customization",
-      "Bonus content chapters",
-      "Advanced scaling strategies",
-      "Team building and leadership content",
-      "Innovation and growth frameworks",
-      "Legacy building chapters",
-    ],
-    popular: true,
-  },
-]
+};
 
 export default function Home() {
-  const router = useRouter()
-  const [selectedTier, setSelectedTier] = useState<string | null>(null)
-  const [loading, setLoading] = useState(false)
-
-  const handleCheckout = async (tierId: string) => {
-    setSelectedTier(tierId)
-    setLoading(true)
-
-    try {
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ productType: tierId, userEmail: '' }),
-      })
-
-      const data = await response.json()
-
-      if (data.url) {
-        window.location.href = data.url
-      } else if (data.error && data.error.includes("logged in")) {
-        router.push("/login")
-      }
-    } catch (error) {
-      console.error("Checkout error:", error)
-      alert("Failed to start checkout. Please try again.")
-    } finally {
-      setLoading(false)
-    }
-  }
-
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-purple-600 via-blue-600 to-purple-700 text-white">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="relative container mx-auto px-6 py-24 md:py-32">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
-              ePub.AI
-            </h1>
-            <p className="text-2xl md:text-3xl mb-8">
-              Generate Professional Lead Magnet eBooks in 5 Minutes
-            </p>
-            <p className="text-lg md:text-xl mb-12 text-gray-100">
-              Transform your website into a powerful 15-30 chapter lead magnet ebook.
-              No writing required. Just enter your URL and let AI do the rest.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                size="lg"
-                className="bg-white text-purple-600 hover:bg-gray-100"
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Get Started Now
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10"
-                onClick={() => router.push('/login')}
-              >
-                Sign In
-              </Button>
-            </div>
-            <div className="flex flex-wrap gap-8 justify-center text-sm">
-              <div className="flex items-center gap-2">
-                <ClockIcon className="w-5 h-5" />
-                <span>5-minute generation</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <BookOpenIcon className="w-5 h-5" />
-                <span>15-30 chapters</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <SparklesIcon className="w-5 h-5" />
-                <span>AI-powered content</span>
+    <>
+    {/* HERO — psychedelic purple with pipeline bar and embedded CTA panel */}
+    <Section>
+      <div className="bg-dots rounded-3xl p-6 md:p-8">
+        <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+          <div className="space-y-6">
+            <div className="badge">For owners who sell online</div>
+            <h1 className="text-4xl md:text-6xl tracking-tight">More buyers. Less grind. A book that sells for you.</h1>
+            <p className="text-lg md:text-xl text-foreground/80 max-w-2xl">Give us your website URL. We'll generate a book that pulls leads in, warms them fast, and points them to buy—automated, instant, repeatable.</p>
+            {/* premium pipeline bar */}
+            <div className="rounded-xl bg-background/40 p-4">
+              <div className="pipeline">
+                <div className="pipeline__bar" />
+                <span className="pipeline__node" style={{ left: "12%" }} />
+                <span className="pipeline__node" style={{ left: "38%" }} />
+                <span className="pipeline__node" style={{ left: "64%" }} />
+                <span className="pipeline__node" style={{ left: "86%" }} />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16">How It Works</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl font-bold text-purple-600">1</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Choose Your Plan</h3>
-              <p className="text-gray-600">
-                Select between our Basic (15 chapters) or Premium (30 chapters) plans
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl font-bold text-purple-600">2</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Enter Your Website</h3>
-              <p className="text-gray-600">
-                Provide your company website URL and we'll analyze your content automatically
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl font-bold text-purple-600">3</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Download Your eBook</h3>
-              <p className="text-gray-600">
-                Receive your professional lead magnet in EPUB format ready to use
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16">Why Choose ePub.AI?</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <RocketIcon className="w-12 h-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Lightning Fast</h3>
-              <p className="text-gray-600">
-                Generate complete ebooks in just 5 minutes, not days or weeks
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <SparklesIcon className="w-12 h-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">AI-Powered Quality</h3>
-              <p className="text-gray-600">
-                Advanced AI creates professional, engaging content tailored to your business
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <ShieldIcon className="w-12 h-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Brand Aligned</h3>
-              <p className="text-gray-600">
-                Content automatically matches your company's voice and value propositions
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <BookOpenIcon className="w-12 h-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Comprehensive Content</h3>
-              <p className="text-gray-600">
-                15-30 chapters of valuable, actionable content for your audience
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <CheckIcon className="w-12 h-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Ready to Use</h3>
-              <p className="text-gray-600">
-                Professional formatting, cover design, and multiple formats included
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <ClockIcon className="w-12 h-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Save Time & Money</h3>
-              <p className="text-gray-600">
-                Replace expensive writers and designers with automated excellence
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-xl text-gray-600 text-center mb-16">
-            One-time payment. No subscriptions. Instant delivery.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {tiers.map((tier) => (
-              <div
-                key={tier.id}
-                className={`relative rounded-2xl p-8 ${
-                  tier.popular
-                    ? "border-2 border-purple-600 shadow-2xl"
-                    : "border border-gray-200 shadow-lg"
-                }`}
-              >
-                {tier.popular && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm">
-                    Most Popular
-                  </span>
-                )}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-                  <p className="text-gray-600 mb-4">{tier.description}</p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-5xl font-bold">{formatPrice(tier.price)}</span>
-                    <span className="text-gray-600">one-time</span>
-                  </div>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckIcon className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  className="w-full"
-                  size="lg"
-                  variant={tier.popular ? "default" : "outline"}
-                  onClick={() => handleCheckout(tier.id)}
-                  disabled={loading}
-                >
-                  {loading && selectedTier === tier.id
-                    ? "Processing..."
-                    : `Get Started with ${tier.name}`}
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to Create Your Lead Magnet?
-          </h2>
-          <p className="text-xl mb-8">
-            Join thousands of businesses using ePub.AI to generate leads on autopilot
-          </p>
-          <Button
-            size="lg"
-            className="bg-white text-purple-600 hover:bg-gray-100"
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Start Generating Now
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 bg-gray-900 text-gray-400">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <p className="text-white font-bold text-xl">ePub.AI</p>
-              <p className="text-sm mt-1">Professional lead magnet generation</p>
-            </div>
-            <div className="flex gap-6">
-              <Link href="/api/v1" className="hover:text-white">
-                API
+            <div className="flex gap-3">
+              <Link href="/pricing" className="rounded-full px-5 py-3 text-sm border border-foreground/15 hover:border-foreground/30">
+                View Pricing
               </Link>
-              <Link href="/terms" className="hover:text-white">
-                Terms
-              </Link>
-              <Link href="/privacy" className="hover:text-white">
-                Privacy
-              </Link>
-              <Link href="/contact" className="hover:text-white">
-                Contact
+              <Link href="/how-it-works" className="rounded-full px-5 py-3 text-sm border border-foreground/0 hover:border-foreground/20">
+                See how it works
               </Link>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-            © {new Date().getFullYear()} ePub.AI. All rights reserved.
+          {/* CTA side card */}
+          <EmailCapture />
+        </div>
+      </div>
+    </Section>
+
+      {/* PLAYBOOK GRID */}
+      <Section>
+        <div className="mb-6">
+          <h2 className="text-2xl md:text-3xl tracking-tight">Traffic in. Belief up. Sales out.</h2>
+          <p className="text-sm text-foreground/70">Short posts fade. This book sticks. It teaches in your voice, handles objections, and ends with one clear next step.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          <FeatureCard title="Website → Generate → Deploy" icon={<div className="badge">Process</div>}>
+            You provide your URL. AI crafts the book. You drop it into your funnel. Minutes, not weeks.
+          </FeatureCard>
+          <FeatureCard title="Belief → Proof → Action" icon={<div className="badge">Editorial</div>}>
+            Bold premise. Specific proof. One action per chapter. Readers finish—and buy.
+          </FeatureCard>
+          <FeatureCard title="Use it everywhere" icon={<div className="badge">Leverage</div>}>
+            Turn pages into emails, posts, and decks. One asset. Many channels. Compounding reach.
+          </FeatureCard>
+        </div>
+      </Section>
+
+      {/* PURPLE PLATFORM PANEL */}
+      <Section>
+        <div className="rounded-2xl bg-purple-surface purple-card p-6 md:p-8 text-white">
+          <h2 className="text-2xl md:text-3xl tracking-tight">Turn cold traffic warm in minutes</h2>
+          <p className="mt-2 text-white/80">Capture attention. Change a belief. Invite one next step. The book does the heavy lift while you run the business.</p>
+          <div className="mt-6 grid md:grid-cols-3 gap-6 text-sm">
+            <div className="rounded-xl bg-white/5 border border-white/15 p-4"><div className="font-medium mb-1">Analysis</div><div className="text-white/80">AI scrapes your website and extracts your voice, value props, and proof points.</div></div>
+            <div className="rounded-xl bg-white/5 border border-white/15 p-4"><div className="font-medium mb-1">Generation</div><div className="text-white/80">Advanced AI crafts 100-250 pages without losing your personality or message.</div></div>
+            <div className="rounded-xl bg-white/5 border border-white/15 p-4"><div className="font-medium mb-1">Delivery</div><div className="text-white/80">Complete EPUB and PDF with cover, ready to deploy as your lead magnet.</div></div>
           </div>
         </div>
-      </footer>
-    </div>
+      </Section>
+
+      {/* BLOG PREVIEW + DARK CTA BAND */}
+      <Section>
+        <div className="grid md:grid-cols-3 gap-6">
+          {["Why AI Books Convert Better","From Website to Lead Magnet","Scale Without Hiring Writers"].map((title) => (
+            <div key={title} className="rounded-2xl border border-foreground/10 p-4">
+              <div className="h-36 rounded-lg bg-dots" />
+              <div className="mt-3 text-lg font-medium tracking-tight">{title}</div>
+              <p className="mt-1 text-sm text-foreground/70">Brief insights on automation, conversion, and scaling your lead generation.</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 rounded-2xl bg-foreground text-background p-8 grid md:grid-cols-[1fr_auto] items-center">
+          <div className="text-2xl md:text-3xl tracking-tight">Start with your website URL. We'll carry the rest.</div>
+          <Link href="/pricing" className="justify-self-start md:justify-self-end rounded-full px-5 py-3 text-sm border border-background/30 hover:border-background/60">Start Your Book</Link>
+        </div>
+      </Section>
+    </>
   );
 }

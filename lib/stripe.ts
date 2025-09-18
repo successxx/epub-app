@@ -6,27 +6,27 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export const PRODUCTS = {
   basic: {
-    name: 'Lead Magnet eBook - Basic',
-    description: '15-chapter professionally written lead magnet eBook with AI-powered content generation',
-    price: 4900, // $49 in cents
-    priceId: process.env.STRIPE_BASIC_PRICE_ID || '',
+    name: 'Lead Magnet eBook - Starter',
+    description: '100-page professionally written lead magnet eBook with AI-powered content generation',
+    price: 49999, // $499.99 in cents
+    priceId: process.env.STRIPE_PRICE_STARTER || '',
     features: [
-      '15 professionally written chapters',
+      '100 pages of professional content',
       'AI-powered content personalization',
       'Website analysis and data extraction',
       'Custom cover design',
-      'EPUB format delivery',
+      'EPUB & PDF format delivery',
       'Introduction and conclusion',
       'Instant generation after payment'
     ]
   },
   premium: {
-    name: 'Lead Magnet eBook - Premium',
-    description: '30-chapter comprehensive lead magnet eBook with advanced AI content generation',
-    price: 99900, // $999 in cents
-    priceId: process.env.STRIPE_PREMIUM_PRICE_ID || '',
+    name: 'Lead Magnet eBook - Professional',
+    description: '250-page comprehensive lead magnet eBook with advanced AI content generation',
+    price: 99999, // $999.99 in cents
+    priceId: process.env.STRIPE_PRICE_PRO || '',
     features: [
-      '30 comprehensive chapters',
+      '250 pages of comprehensive content',
       'Advanced AI-powered content personalization',
       'Deep website analysis and competitor research',
       'Premium custom cover design',
@@ -57,17 +57,7 @@ export async function createCheckoutSession(options: CreateCheckoutSessionOption
       payment_method_types: ['card'],
       line_items: [
         {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: product.name,
-              description: product.description,
-              metadata: {
-                product_type: options.productType
-              }
-            },
-            unit_amount: product.price,
-          },
+          price: product.priceId, // Use existing price IDs from Stripe
           quantity: 1,
         },
       ],
@@ -75,18 +65,13 @@ export async function createCheckoutSession(options: CreateCheckoutSessionOption
       success_url: options.successUrl,
       cancel_url: options.cancelUrl,
       customer_email: options.userEmail,
-      // Collect customer name during checkout
-      billing_address_collection: 'required',
-      shipping_address_collection: {
-        allowed_countries: ['US', 'CA', 'GB', 'AU', 'NZ', 'IE']
-      },
+      billing_address_collection: 'auto',
       metadata: {
         userId: options.userId || '',
         productType: options.productType,
         ...options.metadata
       },
       allow_promotion_codes: true,
-      billing_address_collection: 'auto',
     })
 
     return session

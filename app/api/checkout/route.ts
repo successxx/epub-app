@@ -4,7 +4,7 @@ import { createSupabaseAdmin } from '@/lib/supabase'
 
 export async function POST(request: NextRequest) {
   try {
-    const { productType, userEmail } = await request.json()
+    const { productType, userEmail, websiteUrl } = await request.json()
 
     if (!productType || !['basic', 'premium'].includes(productType)) {
       return NextResponse.json({ error: 'Invalid product type' }, { status: 400 })
@@ -47,11 +47,12 @@ export async function POST(request: NextRequest) {
       productType,
       userEmail,
       userId: userId || undefined,
-      successUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/generate?session_id={CHECKOUT_SESSION_ID}&type=${productType}`,
+      successUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}&type=${productType}`,
       cancelUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/${productType}`,
       metadata: {
         productType,
-        userId: userId || ''
+        userId: userId || '',
+        websiteUrl: websiteUrl || ''
       }
     })
 

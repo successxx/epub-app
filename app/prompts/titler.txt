@@ -1,0 +1,270 @@
+﻿Inputs on the Content Creator/Writer:
+
+
+
+
+( Email (you can extract their publication and website from this too. Take into account what you know about htis publication without losing focus ont he individual writer): {{14.`1`]
+First name: {{14.`2`]
+Last name: {{14.`3`]
+Headline: {{14.`4`]
+Company: {{14.`6`]
+Position description: {{14.`7`]
+- Bio: {{14.`5`]
+
+
+
+
+Writing Extracts For You To Source Style From: {{58.result]
+
+
+
+
+Psychographic Profile of This Book's Author For You To Write Titles That They Are Most Likely To Appreciate: {{54.result]
+
+
+
+
+Preliminary Steps:
+
+
+
+
+Analyze the Inputs Thoroughly Through the Lens of Carl Jung:
+
+
+
+
+Create a comprehensive psychological profile of {{14.`2`] {{14.`3`], considering their writings, bio, and psychographic profiles.
+Explore their personal unconscious, archetypes, and position in Maslow's hierarchy.
+Identify their core motivations, desires, and professional aspirations.
+Extract the Writer's Specific Writing Style:
+
+
+
+
+Analyze the provided inputs from the individual you are titling a book for, and pay attention to recurring themes, narrative techniques, and unique expressions.
+
+
+!IMPORTANT: Your title should be a maximum of 3 short 1-2 syllable words. 
+
+
+Create a Virtual Testing Environment (VTE):
+
+
+
+
+Run simulations to test and optimize various book title variants that match {{14.`2`]'s style and appeal to the target audience.
+Utilize predictive analytics and historical data from best-selling books in the same genre or industry.
+Psychoanalytic Audience Understanding:
+
+
+
+
+Delve Deep into Both the Content Creator's and the Target Audience's Psyche:
+
+
+
+
+For the Content Creator:
+
+
+
+
+Understand their Primary Archetype and how it influences their writing.
+Align the book titles with their Motivation Direction (e.g., Towards goals or Away From problems).
+Consider their Communication Style and Time Orientation to ensure the titles resonate with their natural expression.
+For the Target Audience:
+
+
+
+
+Identify their fears, desires, and motivations using the LAB Profile Criteria.
+Determine what keeps them awake at night and their secret aspirations.
+Assess their reading preferences, current challenges, and what they intensely dislike.
+Use the Psychographic Profiles Provided:
+
+
+
+
+Incorporate the Myers-Briggs Probability, Archetype Probability, and Developmental Stage data to align the titles with the audience's psychological makeup.
+Industry and Audience Analysis:
+
+
+
+
+Analyze the Themes and Topics in the Book Summary:
+
+
+
+
+Extract key themes, messages, and unique angles from the Book Summary.
+Identify how these themes relate to the current industry trends and audience interests.
+Identify Key Elements That Resonate with the Target Audience:
+
+
+
+
+Top Interests: Topics from the articles that received significant attention.
+Emotional Connections: Themes that evoke strong emotional responses.
+Current Challenges: Issues the audience is facing in the industry or subject matter.
+Aspirations and Desires: Goals the audience strives for.
+Title Creation Guidelines:
+
+
+
+
+Create Book Titles That Are Captivating, Riveting, and Curiosity-Evoking:
+
+
+
+
+Titles should reflect the themes of the book and match {{14.`2`]'s writing style.
+Optimized Book Title Framework:
+
+
+
+
+Understand the Audience and Industry:
+
+
+
+
+Identify topics or scenarios that resonate with their emotions.
+Pinpoint their deepest aspirations or wishes.
+Note the subjects or themes they are passionate about or avoid.
+Be aware of tropes or clichés that have become tiresome.
+Identify 3-5 Themes or Trends Popular in Books for This Audience:
+
+
+
+
+Storylines or subjects sparking the most interest.
+Prevailing clichés, overused plot twists, or misconceptions.
+Major news or events currently influencing the genre.
+The most impactful emotions or stakes readers seek.
+Title Structure and Elements:
+
+
+
+
+Start with a strong, evocative word or phrase.
+Incorporate 2-3 words that resonate with the target audience's emotions, curiosities, and the evolving state of the industry.
+Consider adding a subtitle to provide more context or appeal.
+Types of Titles to Craft:
+
+
+
+
+Reflective Titles: Mirror prevalent themes, aspirations, and trends in the book and industry.
+Provocative Titles: Challenge norms or provoke thought, considering the passions and preferences of the audience.
+Descriptive Titles: Capture the essence of the book's content and current events or shifts.
+User Experience:
+
+
+
+
+Ensure the Titles Match the Writer's Style:
+
+
+
+
+Reflect the unique writing style, tone, and voice of {{14.`2`] as identified in the analysis.
+Use vocabulary and expressions characteristic of their writing.
+Visual Appeal:
+
+
+
+
+Consider how the title would look on a cover design that complements {{14.`2`]'s style and the book's themes.
+Ensure the title is memorable and stands out in the market.
+Output Structure:
+
+
+
+
+Provide a world class, High-Impact Book Title, modelling the titles of the top sellers in this category.
+
+
+(Don't include the square brackets, write only the titles)
+
+
+
+
+Important Notes:
+
+
+
+
+Ensure the Title is Deeply Rooted in the Psychoanalytic Understanding of the Content Creator and the Target Audience:
+
+
+
+
+Use insights from the psychographic profiles and writing style analysis.
+Align the titles with the emotional and psychological triggers of the audience.
+Focus on Creating Titles That Will Appeal to the Target Audience and Stand Out in the Market:
+
+
+
+
+Evoke emotions, address popular themes, pique interest, and increase the likelihood of media attention.
+Avoid clichés and overused phrases; strive for originality.
+Maximize Personalization and Ease of Implementation:
+
+
+
+
+Include as many placeholders as necessary to ensure the titles are tailored specifically to {{14.`2`] and their book.
+Make it easy to replace placeholders with actual data during implementation.
+Do Not Include Anything Else in the Response:
+
+
+
+
+Your response should solely contain the single best, most-likely-to-go-viral book title. Do not respond with anything else before, or after your title.
+Do not add any introductions, explanations, or conclusions.
+Reminder:
+
+
+
+
+Think Deeply Before Generating the Title:
+
+
+
+
+Ensure that you have thoroughly analyzed the inputs and have a deep psychoanalytic understanding.
+Use All Available Data:
+
+
+
+
+The AI has access to:
+
+
+
+
+The Book Summary.
+{{14.`2`]'s writing analysis extracts.
+Their headline, bio, company name, and information about who they create content for.
+Include Way More Placeholders:
+
+
+
+
+Incorporate the psychoanalytic inputs and info at every turn.
+Use placeholders for specific themes, emotions, and stylistic elements extracted from the inputs.
+
+
+
+
+Final Instructions:
+
+
+!IMPORTANT: Do not add asterisks or apostrophes, produce your title with simple text only. No formatting at all please.
+
+
+Ensure You Follow ALL These Instructions When Creating Your Output.
+
+
+Thank You!

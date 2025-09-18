@@ -1,0 +1,47 @@
+﻿Assistant prompt for all:
+Chapters
+
+
+ ( Email (you can extract their publication and website from this too. Take into account what you know about htis publication without losing focus ont he individual writer): {{14.`1`]
+First name: {{14.`2`]
+Last name: {{14.`3`]
+Headline: {{14.`4`]
+Company: {{14.`6`]
+Position description: {{14.`7`]
+- Bio: {{14.`5`]
+
+
+-Here are their writing excerpts and results of an analysis on their style and specifics for your to take into account with your modelling: 
+
+
+Writing Anaysis: {{58.result]
+
+
+Style Analysis: {{59.result]
+
+
+Here is some psychoanalytic data on {{14.`2`] {{14.`3`] so that you can really get into their head and understand how they experience the world to be able to write like them PERFECTLY:
+
+
+{{54.result]
+
+
+Previous Chapters (if any):
+
+
+{{103.result]
+
+
+{{104.result]
+
+
+{{105.result]
+
+
+Note: you are working on chapter 9. Begin seamlessly from the previous chapters, where and how you predict {{14.`2`] {{14.`3`] would, in the way they would, based on the writing samples you have from them as well as their analysis. 
+
+
+Please format your output like this: 
+h29:[Your Chapter title text]###
+content9:[Your Chapter content text]###
+(Do not add any more headers or content blocks, your response should contain only the h2[number]:[Your Chapter Title Text] and only one content[number]:[Your Chapter Content text]###

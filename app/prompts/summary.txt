@@ -1,0 +1,378 @@
+﻿Objective:
+
+
+To generate a detailed and cohesive summary of the entire book written by {{14.`2`] {{14.`3`], capturing all key themes, messages, and insights.
+The summary will be used as a foundation for writing the introduction and conclusion, ensuring consistency and alignment with the book's content.
+The AI has access to all the same inputs and the full content of the book.
+
+
+Instructions:
+
+
+Understand the Full Book Content:
+
+
+Read All Chapters Thoroughly:
+
+
+Carefully read and comprehend each chapter to grasp the overall narrative, themes, and key messages.
+Identify the progression of ideas and how each chapter builds upon the previous ones.
+Identify Key Themes and Messages:
+
+
+Extract the main themes, lessons, and insights presented throughout the book.
+Note any recurring motifs, metaphors, or narratives that are significant.
+Extract and Analyze Writing Style:
+
+
+Analyze the Content Creator's Writing Style Using:
+
+
+Donald Murray's "Pace-Rhythm-Flow" Analysis:
+
+
+Identify the tempo, rhythm, and flow across the book.
+Eugene White's "Style Fingerprints" Methodology:
+
+
+Examine stylistic markers such as sentence length, vocabulary, syntax, and literary devices used consistently.
+Joseph Williams' "Cohesion-Coherence-Emphasis" Patterns:
+
+
+Understand how ideas are structured, transitions between concepts, and emphasis on key points.
+Dr. Douglas Biber's Multi-Dimensional Analysis Framework:
+
+
+Assess dimensions such as formality, narrative stance, and informational content.
+Identify Stylistic Elements:
+
+
+Tone: (e.g., inspirational, conversational)
+Voice: (first person)
+Sentence Structure: (varied lengths for impact)
+Vocabulary Usage: (simple, evocative)
+Use of Metaphors and Analogies
+Narrative Techniques
+Incorporate Psychographic Profiles:
+
+
+Understand the Content Creator's Psychological Makeup:
+
+
+Use the LAB Profile Criteria, Myers-Briggs Probability, Archetype Probability, and Developmental Stage to gain insights into their motivations, perspectives, and communication style.
+Align the Summary with Their Personal Style:
+
+
+Reflect their Motivation Direction, Communication Style, and Primary Archetype in the summary.
+Generate the Book Summary:
+
+
+Create a Cohesive and Comprehensive Summary:
+
+
+Summarize each chapter succinctly, highlighting the key points and how they contribute to the overall message.
+Ensure the summary flows logically, mirroring the structure of the book.
+Highlight Key Themes and Messages:
+
+
+Emphasize the main lessons, insights, and takeaways.
+Capture the essence of the content creator's intent and the value provided to the reader.
+Maintain the Content Creator's Voice:
+
+
+Write the summary in a style that reflects {{14.`2`]'s unique voice and tone.
+Use language and expressions consistent with their writing style.
+Focus on Key Elements for the Introduction and Conclusion:
+
+
+For the Introduction:
+
+
+Identify compelling hooks or opening statements from the book.
+Highlight the journey the reader is about to embark on.
+Emphasize the relevance and importance of the content to the reader's needs and aspirations.
+For the Conclusion:
+
+
+Summarize the transformation or progression presented in the book.
+Reinforce the key messages and encourage the reader to apply the insights.
+Provide an inspiring and motivational closing thought.
+Ensure the Summary is Suitable for Writing the Introduction and Conclusion:
+
+
+Provide Enough Detail:
+
+
+Include sufficient information to enable the AI to write a perfect introduction and conclusion.
+Ensure all significant points are covered without excessive detail.
+Maintain Consistency:
+
+
+Align the summary with the content creator's style and the book's overall tone.
+Ensure coherence and logical flow.
+Important Notes:
+
+
+Maximize Personalization:
+
+
+Incorporate as many placeholders as necessary to tailor the summary specifically to {{14.`2`] and their book.
+Ease of Implementation:
+
+
+Structure the prompt to make it easy to replace placeholders with actual data during implementation.
+Include All Relevant Details:
+
+
+Do not omit any significant themes, messages, or stylistic elements from the book.
+Think Deeply Before Writing:
+
+
+Ensure a thorough understanding of the book's content, the content creator's style, and the reader's needs.
+Formatting Instructions:
+
+
+Do Not Include Any Placeholders in the Final Output:
+
+
+Replace all placeholders with actual content during implementation.
+Your Response Should Solely Be the Book Summary:
+
+
+Written in a cohesive and concise manner, suitable for use in the introduction and conclusion.
+
+
+Note that this summary will be seen by the author so write it in the best possible way, in the same voice as the rest of the book, while still giving the ai in the subsequent responses the information it needs to generate perfect intro and conclusion and titles.
+
+
+Formatting: Do not include any asterisks or brackets or #'s. Be sure to produce ONLY clean, tastefully spaced text.
+Please reply ONLY with the summary, nothing before or after it. 
+
+
+!IMPORTANT: Do not add asterisks, produce all your writing with standard text only.
+Objective:
+
+
+To generate a compelling and engaging book introduction for {{14.`2`] {{14.`3`], written in their own unique voice and style.
+The introduction should set up the theme of the book, as outlined in the Book Summary, and pre-frame the content to follow.
+It should provide maximum value to the reader, in a way that feels authentic to the content creator.
+Instructions:
+
+
+Extract and Analyze the Content Creator's Writing Style:
+
+
+Analyze the provided articles (Articles 1-10) using:
+
+
+Donald Murray's "Pace-Rhythm-Flow" Analysis: Identify the tempo, rhythm, and flow of their writing.
+Eugene White's "Style Fingerprints" Methodology: Examine unique stylistic markers such as sentence length, vocabulary, syntax, and use of literary devices.
+Joseph Williams' "Cohesion-Coherence-Emphasis" Patterns: Understand how they structure ideas, transitions, and emphasize key points.
+Dr. Douglas Biber's Multi-Dimensional Analysis Framework: Assess the dimensions of their writing, such as formality, narrative stance, and informational content.
+Identify Stylistic Elements:
+
+
+Tone (e.g., conversational, formal, humorous)
+Voice (first person, third person)
+Sentence Structure (complex, simple)
+Vocabulary Usage (technical, colloquial)
+Use of Metaphors and Analogies
+Narrative Techniques
+Incorporate Psychographic Profiles:
+
+
+Understand the Content Creator's Psychological Makeup:
+
+
+Use the LAB Profile Criteria, Myers-Briggs Probability, Archetype Probability, and Developmental Stage to gain insights into their motivations, communication style, and perspective.
+Align the Introduction with Their Personal Preferences:
+
+
+Match the Motivation Direction (e.g., Towards goals or Away From problems).
+Use their Communication Style (General/Specific) and Time Orientation (Past/Present/Future).
+Reflect their Primary Archetype in the narrative.
+Leverage the Book Summary:
+
+
+Understand the Theme and Purpose of the Book:
+
+
+Extract key themes, messages, and objectives from the Book Summary.
+Pre-frame and Set Up the Content:
+
+
+Introduce the main concepts that will be explored in the book.
+Build anticipation and curiosity for what's to come.
+Craft the Introduction:
+
+
+Write in First Person as {{14.`2`] {{14.`3`], the expert in the subject matter.
+
+
+Use the Content Creator's Own Voice and Style:
+
+
+Incorporate the stylistic elements identified in the analysis to ensure authenticity.
+Engage the Reader:
+
+
+Begin with a compelling hook that captures attention.
+Use vivid imagery and language that resonates with the reader.
+Build a narrative that is both informative and captivating.
+Provide Value:
+
+
+Focus on the benefits for the reader.
+Address their pain points and aspirations.
+Offer insights and perspectives that are immediately valuable.
+Maintain Flow and Coherence:
+
+
+Ensure the introduction reads smoothly and transitions seamlessly into the rest of the book.
+Avoid repetition and keep the content concise.
+Educational Principles to Keep in Mind:
+
+
+Positive Reinforcement:
+
+
+Make the beginning uplifting and empowering.
+Focus on success rather than failure.
+Single Key Insight:
+
+
+Deliver one key message in multiple ways.
+Use stories, examples, facts, and emotional appeals.
+Emotional Engagement:
+
+
+Attach strong emotions to enhance memory retention.
+Build tension before delivering solutions.
+Subtle Suggestions:
+
+
+Avoid forcefully pushing ideas.
+Guide the reader with logic and subtlety.
+Framing:
+
+
+Emphasize quick results or highlight long-term benefits.
+Writing Style Guidelines:
+
+
+Tone:
+
+
+Blend inspiration and practicality.
+Be persuasive and passionate, yet grounded.
+Language:
+
+
+Use sensory and emotive language.
+Keep it casual and approachable.
+Use the top 1000 most commonly used English words.
+Metaphors and Analogies:
+
+
+Use creative and original metaphors.
+Weave the same metaphor throughout without mixing.
+Storytelling:
+
+
+Craft a narrative arc with an open loop.
+Build anticipation and close the loop by the end.
+Audience-Centric:
+
+
+Position content around the reader's needs and desires.
+Make the reader the hero of the story.
+Flow and Clarity:
+
+
+Use short sentences and punchy copy.
+Minimize use of commas for better flow.
+Keep language clean and crisp.
+Call to Action:
+
+
+End with an Actionable Step:
+
+
+Provide one small action the reader can take to improve their situation.
+Make it detailed and easy to implement.
+Encourage Engagement:
+
+
+Include a sentence that ties off with an example of the benefits gained.
+Final Touches:
+
+
+Positive Reinforcement:
+
+
+Begin and end the introduction with uplifting messages.
+Use of Presuasion and Influence Principles:
+
+
+Apply Cialdini's principles to make the content compelling.
+Avoid Numbered Lists:
+
+
+Make it flow like a novel.
+Avoid Mentioning Yourself in Third Person:
+
+
+Do not mention {{14.`2`] in third person; write directly as them.
+Ensure the Introduction Is Self-Contained:
+
+
+The reader should grasp its full potential from the introduction alone.
+Important Notes:
+
+
+Maximize Personalization:
+
+
+Incorporate as many placeholders as necessary to ensure the introduction is tailored specifically to {{14.`2`] and their book.
+Ease of Implementation:
+
+
+Structure the prompt in a way that makes it easy to replace placeholders with actual data during implementation.
+Include All Relevant Details:
+
+
+Do not lose any data or instructions from the original prompt.
+Think Deeply Before Writing:
+
+
+Ensure a thorough understanding of the content creator's style and the book's theme.
+Final Instructions:
+
+
+Your Response Should Solely Be the Book Introduction:
+
+
+Written in {{14.`2`]'s voice, following all the instructions above.
+
+
+Sign Off: Include a sign off at the end of your response. Simply: -{{14.`2`] {{14.`3`]
+
+
+Do Not Include Any Placeholders in the Final Output:
+
+
+All placeholders should be replaced with actual content during implementation.
+
+
+Make sure the hook is incredibly compelling and generating maximum curiosity to continue reading because of the power and meotional appealk of it combined with the same writing style as {{14.`2`] {{14.`3`] exactly - because they hired us to write this book in their name, so it should sound like them.
+
+
+Title: Do not add a title or header. This is the introduction and the header will already be taken care of. 
+
+
+Maintain Ethical Standards:
+
+
+Ensure all content is ethical, responsible, and adheres to the guidelines provided.
+!IMPORTANT: Do not add asterisks, produce all your writing with standard text only. No bold, no italics, nothing like that.
+Be sure to follow ALL of the requirements please - Thank You!

@@ -1,0 +1,49 @@
+﻿Generate a photorealistic 3D mockup of a hardcover book with these specifications:
+A professional hardcover book photographed at a 3/4 angle on a marble desk surface, with soft studio lighting. The book appears substantial, around 400 pages. The cover features a minimalist, executive design with [RandomPrimaryColor] as the dominant tone. The title "{{91.result]" appears in elegant sans-serif typography, positioned in the upper third of the cover. A matching, eye catching image is below the title, in colors and archetypal symbols that resonate and feel "right". 
+
+
+Color Palette:
+- Use color psychology to evoke specific emotions. Randomly select a dominant emotion and corresponding color scheme:
+  - Awe: Purples, cosmic blues, and starlit silvers
+  - Joy: Vibrant yellows, warm oranges, and soft pinks
+  - Serenity: Aquamarines, gentle greens, and misty whites
+  - Power: Bold reds, deep blacks, and metallic golds
+  - Mystery: Rich indigos, shadowy grays, and luminous teals
+- Use bright, eye-catching colors.
+
+
+Title Integration:
+- Incorporate the Book Title by engraving it on a billboard within the cover. Ensure the billboard integrates seamlessly with the environment and enhances the overall composition.
+
+
+Compositional Elements:
+- Use the rule of thirds, golden ratio, or dynamic symmetry for pleasing layouts.
+- Create depth through layering and atmospheric perspective.
+- Incorporate a surprising scale relationship between elements.
+- Add small, intriguing details that invite closer examination.
+There is no other text on the cover at all. A subtle pattern creates depth in the background. The spine is clearly visible with embossed text. The book casts a soft shadow, suggesting premium print quality. The scene includes a hint of a MacBook or professional desk setup in the blurred background.
+Key elements to emphasize:
+
+
+Professional 3D hardcover book
+3/4 angle view showing front cover and spine
+Premium matte finish
+Embossed title text
+Minimalist executive design
+Subtle professional environment
+High-end publishing quality
+Soft, professional studio lighting
+
+
+Style notes:
+
+
+Modern luxury book design
+Corporate/professional aesthetic
+Clean, uncluttered composition
+High-contrast professional typography
+Premium materials and printing
+No extra text. Only title. 
+
+
+!EXTREMELY IMPORTANT: DO NOT ADD ANY OTHER TEXT WHATSOEVER, THERE SHOULD ONLY BY THE TITLE OF THE BOOK ENGRAVED ON THE COVER. NO OTHER TEXT. Thank you!

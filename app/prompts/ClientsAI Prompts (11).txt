@@ -1,0 +1,290 @@
+Objective:
+
+To generate a high-quality book chapter for our client {{14.`2`] {{14.`3`], written in a style consistent with the client's voice and tone, ensuring a smooth and cohesive reading experience throughout the book. Each chapter should build upon the previous ones, avoiding duplication and maintaining consistency. The AI should plan the content to fit within a total of 19 chapters, considering the progression and mapping of the book's layout. Note that there will be an introduction and a conclusion before and after the book content you write. Adjust your content accordingly.
+
+First, Read Previous Chapters Thoroughly:
+
+Carefully read all previous chapters to understand the content covered so far.
+Ensure consistency in themes, messages, and narrative flow.
+Identify what has been discussed and what new content can be introduced.
+Avoid Duplication:
+
+Do not repeat content or ideas already covered.
+Build upon previous concepts, introducing new insights.
+
+Instructions:
+
+Keep the chapter title short, concise, benefit-oriented, and engaging, with maximum appeal. The content should be relevant to all readers interested in this book. It should provide the utmost value in an easy-to-understand and smooth manner, reading like a best-selling book. Present the content in a clear, actionable, and profitable way, with a seamless flow. Ensure the finished chapter reads like a polished piece, ready for the client, and evokes gratitude and admiration from readers. The chapter should be self-contained, with key insights extracted, leaving no reason to seek additional sources because all the key insights are here.
+
+Instructions:
+
+Create a Compelling Chapter Title:
+
+Match the chapter number with the book theme.
+Keep it short, concise, benefit-oriented, and engaging.
+Use hooks to capture the reader's attention.
+Write the Chapter Content:
+
+Present the content in a helpful, clear, and actionable manner.
+Ensure it reads like a polished piece, ready for publication.
+The chapter should be self-contained with key insights.
+Style Guidelines:
+
+Tone: Blend inspiration and practicality. Be persuasive and passionate, yet grounded.
+Language: Use sensory and emotive language. Keep it casual and approachable. Use the top 1000 most commonly used English words. Keep sentences short and punchy.
+Metaphors and Analogies: Use creative and original metaphors. Weave the same metaphor throughout without mixing. Avoid generic metaphors; be creative.
+Storytelling: Weave a narrative arc with an open loop at the beginning and close it at the end.
+Audience-Centric: Position content around the reader's needs and desires. Make the reader the hero of the story.
+Flow and Clarity: Minimize use of commas for better flow. Keep language clean and crisp.
+Educational and Persuasive Principles:
+
+Positive Reinforcement: Begin and end with uplifting and empowering messages.
+Focus on Success: Emphasize success rather than failure.
+Single Key Insight: Deliver one key message in multiple ways using stories, examples, facts, emotional appeals, and positive/negative juxtapositions.
+Emotional Engagement: Attach strong emotions to enhance memory retention. Build tension before delivering the solution.
+Subtle Suggestions: Avoid forcefully pushing ideas. Guide the reader with logic and subtlety.
+Framing: Emphasize quick results or highlight long-term benefits.
+Call to Action:
+
+End with a motivating call to action, urging the reader to embrace the opportunity or solution presented.
+Provide one small action the reader can take, detailed and easy to implement.
+Include a sentence that ties off with an example of the benefits gained.
+Avoid Numbered Lists:
+
+Make it flow like a novel.
+Write in First Person:
+
+Write as the expert on the subject matter.
+Final Prompt for the Reader:
+
+At the end, provide a one-sentence prompt they can paste into ChatGPT to generate helpful insights or questions related to the chapter's teachings.
+Make this prompt encourage critical thought and provide helpful, actionable replies.
+Ensure it is concise and relevant to the chapter's content.
+Additional Notes:
+
+Use only the top 1000 most commonly used English words.
+Keep language clean and crisp, not superfluous or verbose.
+Do not mention any specific individuals or entities.
+Ensure all content is original and ethical.
+Employ the principles of persuasion to make the content compelling and actionable.
+Keep your response within the character limit.
+
+Understand the Context and Content So Far:
+
+
+Plan the Book Layout:
+
+Total Chapters: The book will have 19 chapters.
+
+Mapping and Progression:
+
+Plan content to ensure logical progression throughout the book.
+Consider what has been covered and what needs to be addressed in upcoming chapters.
+Analyze Writing Style:
+
+Identify Stylistic Elements:
+
+Tone: (e.g., conversational, formal, humorous)
+Voice: (e.g., first person)
+Sentence Structure: (e.g., complex, simple)
+Vocabulary Usage: (e.g., technical, colloquial)
+Use of Metaphors and Analogies
+Narrative Techniques
+Pace, Rhythm, and Flow
+Ensure Consistency:
+
+Match the writing style, tone, and voice of the previous chapters.
+Maintain coherence in narrative techniques and stylistic choices.
+Leverage the Book Summary:
+
+Understand the Theme and Purpose of the Book:
+
+Extract key themes, messages, and objectives from the Book Summary.
+Integrate with the Book's Style:
+
+Ensure the chapter aligns with the overall theme and direction of the book.
+Generate the Chapter Content:
+
+Create a Compelling Chapter Title:
+
+Use hooks; ensure it matches the chapter's context.
+Keep it short, concise, benefit-oriented, and engaging.
+Label the chapter title using the next sequential header (h21: to h29:).
+Write the Chapter Content:
+
+Present content in a helpful, clear, actionable manner.
+Ensure it reads like a polished piece, evoking gratitude.
+The chapter should be self-contained with key insights.
+Themes and Topics:
+
+Use the previous chapters and book summary to understand themes to expand upon.
+Generate content that appeals to the readers and adds value.
+Ensure Originality:
+
+Do not copy content directly from any sources.
+Create original content inspired by the book's themes and objectives.
+Maintain Consistency and Flow:
+
+Ensure Seamless Transitions:
+
+Make the chapter flow naturally from previous ones.
+Build anticipation for upcoming chapters.
+Avoid Repetition:
+
+Do not duplicate content from previous chapters.
+Introduce new ideas and perspectives.
+Educational and Persuasive Principles:
+
+Positive Reinforcement:
+
+Begin and end with uplifting and empowering messages.
+Focus on Success:
+
+Emphasize success rather than failure.
+Single Key Insight:
+
+Deliver one key message in multiple ways.
+Use stories, examples, facts, emotional appeals.
+Emotional Engagement:
+
+Attach strong emotions to enhance memory retention.
+Build tension before delivering solutions.
+Subtle Suggestions:
+
+Avoid forcefully pushing ideas.
+Guide the reader with logic and subtlety.
+Framing:
+
+Emphasize quick results or highlight long-term benefits.
+Writing Style Guidelines:
+
+Tone:
+
+Blend inspiration and practicality.
+Be persuasive and passionate, yet grounded.
+Language:
+
+Use sensory and emotive language.
+Keep it casual and approachable.
+Use clear and concise sentences.
+Metaphors and Analogies:
+
+Use creative and original metaphors.
+Weave the same metaphor throughout without mixing.
+Storytelling:
+
+Weave a narrative arc with an open loop.
+Build anticipation and close the loop by the end.
+Audience-Centric:
+
+Position content around the reader's needs and desires.
+Make the reader the hero of the story.
+Flow and Clarity:
+
+Minimize use of complex sentences for better flow.
+Keep language clean and crisp.
+Call to Action:
+
+End with an Actionable Step:
+
+Provide one small action the reader can take.
+Make it detailed and easy to implement.
+Encourage Engagement:
+
+Include a sentence that ties off with an example of the benefits gained.
+Formatting Instructions:
+
+Output Format:
+
+H2 Series:
+
+Create an h2 header for this chapter, labeled from h21: to h219: based on the chapter number.
+Add ### immediately after the header.
+Example: h21:[Your Chapter Title]###
+Content Series:
+
+Create one content section labeled from content1: to content19:, corresponding to the header.
+Add ### immediately after the content.
+Example: content1:[Your Chapter Content]###
+Important:
+
+Only include one h2 header and one content block in your response.
+Ensure numbering matches the chapter number.
+Do not include additional headers or content sections.
+
+!IMPORTANT: Do not add asterisks, produce all your writing with standard text only.
+
+Parsing Patterns:
+
+Header Parser Pattern: h2\d+:([\s\S]*?)###
+Content Parser Pattern: content\d+:([\s\S]*?)###
+Clean Parsing:
+
+Ensure your content output can be cleanly parsed using the patterns.
+Avoid extra characters, unnecessary formatting, or deviations.
+Final Output Format (Do Not Include This Text in Your Response):
+
+h2X:[Your Chapter Title]###
+contentX:[Your Chapter Content]###
+Replace X with the chapter number (e.g., h212: for Chapter 12).
+
+Crucial Reminder:
+
+This is Chapter 12. Format your output accordingly.
+Additional Instructions:
+
+Use of Persuasion and Influence Principles:
+
+Apply techniques to make the content compelling and actionable.
+Avoid Numbered Lists:
+
+Make it flow like a novel.
+Final Prompt for the Reader:
+
+At the end, provide a one-sentence prompt they can paste into ChatGPT to generate the best questions to ask, following the teachings in the chapter.
+Make this prompt encourage critical thought and provide helpful, actionable replies.
+Ensure it is concise and relevant to the chapter's content.
+Word Limit:
+
+Use your full character limit but no more.
+Important Notes:
+
+Maximize Personalization:
+
+Incorporate relevant details to ensure the chapter is tailored specifically to the book.
+Ease of Implementation:
+
+Structure the prompt to make it easy to replace placeholders with actual data during implementation.
+Include All Relevant Details:
+
+Do not lose any data or instructions from the original prompt.
+Think Deeply Before Writing:
+
+Ensure a thorough understanding of the book's theme and the reader's needs.
+Reminder:
+
+Do Not Include Any Placeholders in the Final Output:
+
+All placeholders will be replaced with actual content during implementation.
+Your Response Should Solely Contain:
+
+One h2 header with the chapter title, properly formatted.
+One content block with the chapter content, properly formatted.
+Do Not Include Any Additional Text or Explanations in Your Response.
+
+Maintain Ethical Standards:
+
+Ensure all content is ethical, responsible, and adheres to the guidelines provided.
+Please reply ONLY with the chapter title formatted like this:
+
+h212:[Your Chapter title text]###
+And ONLY the chapter content, formatted like this:
+
+content12:[Your Chapter content text]###
+Do not add any other headers or body blocks. Your response should consist only of one chapter title formatted like that and one content block formatted like that, too. That's it.
+
+IMPORTANT: Do not include any extra subheaders throughout your content. It should be text only. No extra formatting for bolds or italics, just plain writing following the parsing instructions above.
+
+AGAIN, !IMPORTANT: Do not add asterisks, produce all your writing with standard text only.
+
+Again, please reply ONLY with the chapter title formatted correctly.
